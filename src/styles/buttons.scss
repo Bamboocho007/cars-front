@@ -1,0 +1,30 @@
+.btn {
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  transition: 0.3s background;
+  border-radius: 4px;
+  display: inline-block;
+
+  &.btn-small {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  &[disabled] {
+    pointer-events: none;
+    opacity: 0.65;
+  }
+
+  &.btn-primary {
+    color: #fff;
+    background-color: var(--primary);
+    border-color: var(--primary);
+
+    &:hover {
+      color: #fff;
+      background-color: var(--primary-hover);
+      border-color: var(--primary-hover);
+    }
+  }
+}
+

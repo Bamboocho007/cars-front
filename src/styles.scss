@@ -1,2 +1,9 @@
 @import './styles/css-reset.scss';
 @import './styles/bootstrap-grid.scss';
+@import './styles/fonts.scss';
+@import './styles/colors.scss';
+@import './styles/buttons.scss';
+
+body {
+  font-family: -apple-system, Roboto, sans-serif;
+}
