@@ -9,6 +9,9 @@ import { CoreModule } from './core/core/core.module';
 import { ContentComponent } from './layout/content/content.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HeaderComponent } from './layout/header/header.component';
+import { HttpClientModule } from '@angular/common/http';
+import { TranslocoRootModule } from './transloco-root.module';
+import { TRANSLOCO_SCOPE } from '@ngneat/transloco';
 
 @NgModule({
   declarations: [
@@ -17,8 +20,27 @@ import { HeaderComponent } from './layout/header/header.component';
     FooterComponent,
     ContentComponent,
   ],
-  imports: [BrowserModule, CoreModule, AppRoutingModule, AuthModule, ApiModule],
-  providers: [],
+  imports: [
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    CoreModule,
+    AppRoutingModule,
+    AuthModule,
+    ApiModule,
+    HttpClientModule,
+    TranslocoRootModule,
+  ],
+  providers: [
+    {
+      provide: TRANSLOCO_SCOPE,
+      useValue: 'home',
+      multi: true,
+    },
+    {
+      provide: TRANSLOCO_SCOPE,
+      useValue: { scope: 'home/nested', alias: 'nested' },
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
