@@ -19,7 +19,7 @@ export function moduleHttpLoaderFactory(http: HttpClient) {
       // final url: ./assets/i18n/en.json
       { baseTranslateUrl },
       // final url: ./assets/i18n/home/test/en.json
-      { baseTranslateUrl, moduleName: 'home/test' },
+      { baseTranslateUrl, moduleName: 'home' },
     ],
   };
 

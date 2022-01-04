@@ -17,7 +17,7 @@ import { HeaderComponent } from './layout/header/header.component';
     FooterComponent,
     ContentComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, CoreModule, AuthModule, ApiModule],
+  imports: [BrowserModule, CoreModule, AppRoutingModule, AuthModule, ApiModule],
   providers: [],
   bootstrap: [AppComponent],
 })
