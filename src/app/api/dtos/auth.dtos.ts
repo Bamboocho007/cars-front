@@ -2,10 +2,6 @@ export class LoginPayloadDto {
   constructor(public email: string, public password: string) {}
 }
 
-export class LoginResponseDto {
-  constructor(public token = '') {}
-}
-
 export class RegistrationPayloadDto {
   constructor(
     public firstName = '',
