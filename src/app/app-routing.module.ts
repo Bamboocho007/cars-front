@@ -1,23 +1,27 @@
-import { NgModule } from '@angular/core';
+import { Injectable, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
+@Injectable()
+export class TestService {
+  constructor() {
+    console.log('TestService');
+  }
+}
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: '',
     loadChildren: () =>
       import('./home/home.module').then((mod) => mod.HomeModule),
-  },
-  {
-    path: '',
-    redirectTo: '',
     pathMatch: 'full',
   },
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes),
-  ],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
+  providers: [TestService],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+  constructor(private testService: TestService) {}
+}
