@@ -1,27 +1,38 @@
-import { Injectable, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-@Injectable()
-export class TestService {
-  constructor() {
-    console.log('TestService');
-  }
-}
+import { LocalizedRoutingService } from './services/localized-routing/localized-routing.service';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'home',
     loadChildren: () =>
       import('./home/home.module').then((mod) => mod.HomeModule),
     pathMatch: 'full',
   },
 ];
 
+const languageRoutes: Routes = [
+  {
+    path: 'ru',
+    children: routes,
+  },
+  {
+    path: 'ua',
+    children: routes,
+  },
+  {
+    path: '**',
+    redirectTo: 'ru',
+  },
+];
+
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(languageRoutes)],
   exports: [RouterModule],
-  providers: [TestService],
+  providers: [LocalizedRoutingService],
 })
 export class AppRoutingModule {
-  constructor(private testService: TestService) {}
+  constructor(private localizedRoutingService: LocalizedRoutingService) {
+    localizedRoutingService.init();
+  }
 }

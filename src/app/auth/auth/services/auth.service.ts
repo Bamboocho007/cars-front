@@ -5,7 +5,7 @@ import {
   RegistrationPayloadDto,
 } from 'src/app/api/dtos/auth.dtos';
 import { AuthApiService } from 'src/app/api/services/auth-service/auth-api.service';
-import { LocalStorageService } from 'src/app/core/core/services/local-storage.service';
+import { LocalStorageService } from 'src/app/core/core/services/local-storage/local-storage.service';
 
 @Injectable()
 export class AuthService {

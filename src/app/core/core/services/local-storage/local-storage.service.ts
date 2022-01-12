@@ -7,7 +7,8 @@ export class LocalStorageService {
     window.localStorage.setItem(key, stringifiedValue);
   }
 
-  getObj(key: string): any {
+  getObj<T = any>(key: string): T | null {
+    if (typeof window === 'undefined') return null;
     const value = window.localStorage.getItem(key);
     if (value === null) return null;
     return JSON.parse(value);
