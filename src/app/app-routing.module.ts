@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LocalizedRoutingService } from './services/localized-routing/localized-routing.service';
 
 const routes: Routes = [
   {
@@ -11,28 +10,9 @@ const routes: Routes = [
   },
 ];
 
-const languageRoutes: Routes = [
-  {
-    path: 'ru',
-    children: routes,
-  },
-  {
-    path: 'ua',
-    children: routes,
-  },
-  {
-    path: '**',
-    redirectTo: 'ru',
-  },
-];
-
 @NgModule({
-  imports: [RouterModule.forRoot(languageRoutes)],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [LocalizedRoutingService],
+  providers: [],
 })
-export class AppRoutingModule {
-  constructor(private localizedRoutingService: LocalizedRoutingService) {
-    localizedRoutingService.init();
-  }
-}
+export class AppRoutingModule {}
