@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {
+  BrowserModule,
+  BrowserTransferStateModule,
+  TransferState,
+} from '@angular/platform-browser';
 import { ApiModule } from './api/api.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,12 +29,13 @@ import { moduleHttpLoaderFactory } from './translations-config/translatins-brows
     AppRoutingModule,
     AuthModule,
     ApiModule,
+    BrowserTransferStateModule,
     TranslateModule.forRoot({
       defaultLanguage: 'ru',
       loader: {
         provide: TranslateLoader,
         useFactory: moduleHttpLoaderFactory,
-        deps: [HttpClient],
+        deps: [HttpClient, TransferState],
       },
     }),
   ],
