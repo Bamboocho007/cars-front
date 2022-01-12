@@ -10,29 +10,7 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
-import {
-  ModuleTranslateLoader,
-  IModuleTranslationOptions,
-} from '@larscom/ngx-translate-module-loader';
-
-export function moduleHttpLoaderFactory(
-  http: HttpClient,
-): ModuleTranslateLoader {
-  const baseTranslateUrl = './assets/i18n';
-
-  const options: IModuleTranslationOptions = {
-    modules: [
-      // final url: ./assets/i18n/en.json
-      { baseTranslateUrl },
-      // final url: ./assets/i18n/home/en.json
-      { baseTranslateUrl, moduleName: 'home' },
-      // final url: ./assets/i18n/home/nested/en.json
-      { baseTranslateUrl, moduleName: 'home/nested' },
-    ],
-  };
-
-  return new ModuleTranslateLoader(http, options);
-}
+import { moduleHttpLoaderFactory } from './translations-config/translatins-browser-loader';
 
 @NgModule({
   declarations: [

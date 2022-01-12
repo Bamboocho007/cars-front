@@ -3,19 +3,10 @@ import { TranslateLoader } from '@ngx-translate/core';
 import { join, resolve } from 'path';
 import { Observable } from 'rxjs';
 import * as fs from 'fs';
+import { ModuleTranslationOptions } from './module-translation-options';
 
 export function moduleServerLoaderFactory(): TranslateServerLoader {
-  const baseTranslateUrl = './assets/i18n';
-
-  const options: IModuleTranslationOptions = {
-    modules: [
-      { baseTranslateUrl },
-      { baseTranslateUrl, moduleName: 'home' },
-      { baseTranslateUrl, moduleName: 'home/nested' },
-    ],
-  };
-
-  return new TranslateServerLoader(options);
+  return new TranslateServerLoader(ModuleTranslationOptions);
 }
 
 export class TranslateServerLoader implements TranslateLoader {

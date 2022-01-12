@@ -4,7 +4,7 @@ import { ServerModule } from '@angular/platform-server';
 import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { moduleServerLoaderFactory } from './translatins-server-loader';
+import { moduleServerLoaderFactory } from './translations-config/translatins-server-loader';
 
 @NgModule({
   imports: [
