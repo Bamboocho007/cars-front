@@ -1,0 +1,9 @@
+  
+<a
+  *ngFor="let locale of locales"
+  class="dropdown-item"
+  queryParamsHandling="merge"
+  routerLink="/{{locale}}/{{currentUrl}}"
+  routerLinkActive="active">
+  {{locale}}
+</a>

@@ -15,6 +15,7 @@ import { HeaderComponent } from './layout/header/header.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { moduleHttpLoaderFactory } from './translations-config/translatins-browser-loader';
+import { LangguageSwitcherComponent } from './layout/langguage-switcher/langguage-switcher.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { moduleHttpLoaderFactory } from './translations-config/translatins-brows
     HeaderComponent,
     FooterComponent,
     ContentComponent,
+    LangguageSwitcherComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

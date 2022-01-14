@@ -24,6 +24,8 @@
     "@angular/platform-browser-dynamic": "~13.1.0",
     "@angular/platform-server": "~13.1.0",
     "@angular/router": "~13.1.0",
+    "@gilsdav/ngx-translate-router": "^4.0.1",
+    "@gilsdav/ngx-translate-router-http-loader": "^2.0.0",
     "@larscom/ngx-translate-module-loader": "^3.0.5",
     "@nguniversal/express-engine": "^13.0.1",
     "@ngx-translate/core": "^14.0.0",
